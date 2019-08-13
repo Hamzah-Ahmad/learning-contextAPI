@@ -9,9 +9,15 @@ class ThemeContextProvider extends Component {
         dark: {syntax: '#ddd', ui: '#333', bg: '#555'}
     }
 
+    //to make the function below worked, we binded 'this' to this.toggleTheme on line 20. We could have made the function below an arrow function which would have removed the need to bind 'this'. I just did it this way to see how it works.
+    toggleTheme  () {
+        this.setState({
+            isLightTheme: !this.state.isLightTheme
+        })
+    }
     render() {
         return(
-            <ThemeContext.Provider value = {{...this.state}}>
+            <ThemeContext.Provider value = {{...this.state, toggleTheme: this.toggleTheme.bind(this)}}>
                {this.props.children}
             </ThemeContext.Provider>
         )
