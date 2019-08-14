@@ -5,13 +5,14 @@ import { BookContext } from '../contexts/BookContext';
 const BookList = () => {
   const {books}  = useContext(BookContext);
   const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const {removeBook} = useContext (BookContext);
   const theme = isLightTheme ? light : dark;
   return(
     <div className="book-list" style={{ color: theme.syntax, background: theme.bg }}>
       <ul>
         {books.map((book) => {
           return(
-            <li style = {{ background: theme.ui }}>{book.title}</li>
+            <li key = {book.id} onClick = {() => removeBook(book.id)} style = {{ background: theme.ui }}>{book.title}</li>
           )
         })}
         {/* <li style={{ background: theme.ui }}>the way of kings</li>
