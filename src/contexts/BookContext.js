@@ -6,10 +6,10 @@ const BookContextProvider = (props) => {
     const [books, setBooks] = useState([
         {title: 'DaVinchi Code', id: 1},
         {title: 'Angels and Demons', id: 2},
-        {title: 'DaVinchi Code', id: 1}
+        {title: 'Memoirs of an Invisible Man', id: 1}
     ]);
     return (
-        <BookContext.Provider value = {books}>
+        <BookContext.Provider value = {{books}}>
             {props.children}
         </BookContext.Provider>
     )
