@@ -3,6 +3,11 @@ import { ThemeContext } from '../contexts/ThemeContext';
 import { BookContext } from '../contexts/BookContext';
 
 const BookList = () => {
+  
+  //if we had used a class component, we would have used the following two lines to get context
+  //static contextType = BookContext
+  //const {books} = this.context
+
   const {books}  = useContext(BookContext);
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const {removeBook} = useContext (BookContext);
@@ -15,9 +20,6 @@ const BookList = () => {
             <li key = {book.id} onClick = {() => removeBook(book.id)} style = {{ background: theme.ui }}>{book.title}</li>
           )
         })}
-        {/* <li style={{ background: theme.ui }}>the way of kings</li>
-        <li style={{ background: theme.ui }}>the name of the wind</li>
-        <li style={{ background: theme.ui }}>the final empire</li> */}
       </ul>
     </div>
   )     

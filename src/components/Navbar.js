@@ -6,7 +6,7 @@ import { AuthContext } from '../contexts/AuthContext';
 //   render() {
 //     return ( 
 //       <AuthContext.Consumer>{(authContext) => (         //we used round braces instead of curly braces here because we are only returning some JSX here an nothing mroe
-//         <ThemeContext.Consumer>{themeContext => {
+//         <ThemeContext.Consumer>{(themeContext) => {
 //           const {isAuthenticated, toggleAuth} = authContext;
 //           const { isLightTheme, light, dark } = themeContext;
 //           const theme = isLightTheme ? light : dark;
